@@ -1,0 +1,103 @@
+How to Test the Calculator GUI
+------------------------------
+
+Notes:
+
+	The default state of the Calculator is Integer mode.
+
+	The characters between the single quotations represent which button on the Calculator to press.
+
+Step 1 (Tests + and = ):
+	'1', '2', '+', '5', '='
+	The above should output: 12+5=17
+
+Step 2 (Tests - ):
+	'AC', '1', '2', '-', '5', '='
+	The above should output: 12-5=7
+
+Step 3 (Tests B and * ):
+	(Press B, 5 times)
+	'B', 'B', 'B', 'B', 'B', '1', '5', '*', '5', '='
+	The above should output: 15*5=75
+
+Step 4 (Tests / ):
+	(Press B, 5 times)
+	'B', 'B', 'B', 'B', 'B', '1', '5', '/', '5', '='
+	The above should output: 15/5=3
+
+Step 5 (Tests + with ( and ) ):
+	'AC', '1', '+', '(', '3', ')', '='
+	The above should output: 1+(3)=4
+
+Step 6 (Tests - with ( and ) ):
+	'AC', '1', '-', '(', '3', ')', '='
+	The above should output: 1-(3)=-2
+
+Step 7 (Tests * with ( and ) ):
+	'AC', '4', '*', '(', '0', '+', '3', ')', '='
+	The above should output: 4*(0+3)=12
+
+Step 8 (Tests / with ( and ) ):
+	'AC', '4', '/', '(', '1', '+', '3', ')', '='
+	The above should output: 4/(1+3)=1
+
+Step 9 (Tests + with M - Float Mode ):
+	'AC', 'M', '6', '+', '7', '='
+	The above should output: 6+7=13.000000
+
+Step 10 (Tests - with M - Integer Mode ):
+	'AC', 'M', '8', '-', '9', '='
+	The above should output: 8-9=-1
+
+Step 11 (Tests * with M - Float Mode ):
+	'AC', 'M', '3', '*', '5', '='
+	The above should output: 3*5=15.000000
+
+Step 12 (Tests / in M - Float Mode ):
+	'AC', 'M', 'M', '3', '/', '5', '='
+	The above should output: 3/5=0.600000
+
+Step 13 (Tests ( and ) in M - Float Mode ):
+	'AC', '3', '/', '(', '5', '+', '4', ')', '='
+	The above should output: 3/(5+4)=0.333333
+
+Step 14 (Tests B in M - Integer Mode ):
+	'AC', 'M', '3', '/', '(', '5', '+', '4', ')', '=', 'B'
+	The above should output: 3/(5+4)
+
+Step 15 (Tests B with = in M - Float Mode ):
+	'AC', 'M', '3', '/', '(', '5', '+', '4', ')', '=', 'B', '+', '5', '='
+	The above should output: 3/(5+4)+5=5.333333
+
+Step 16 (Tests B with = in M - Float Mode ):
+	'AC', 'M', 'M', '3', '/', '(', '5', '+', '4', ')', '=', 'B', '+', 'B', 'B', '5', ')', '='
+	The above should output: 3/(5+45)=0.060000
+
+Step 17 (Tests NotAnInteger in M - Integer Mode ):
+	'AC', 'M', '3', '/', '5', '='
+	The above should output: 3/5=fraction
+
+Step 18 (Tests NotAnInteger with B in M - Float Mode ):
+	'M', 'B', 'B', '3', '='
+	The above should output: 3/3=1.000000
+
+Step 19 (Tests ParseError in M - Float Mode ):
+	'AC', '5', '/', '+'
+	The above should output: 5/+= syntax error
+
+Step 20 (Tests ParseError with B in M - Integer Mode ):
+	'M', 'B', 'B', '5', '='
+	The above should output: 5/5=1
+
+Step 21 (Tests Division by 0 in M - Float Mode ):
+	'AC', 'M', '4', '/', '0'
+	The above should output: 4/0=Infinity
+
+Step 22 (Tests Division by 0 in M - Integer Mode ):
+	'AC', 'M', '4', '/', '0'
+	The above should output: 4/0=fraction
+
+
+By following and completing the above 22 steps you have thoroughly 
+tested the functionality of the GUI of the Calculator,
+Congratulations!
